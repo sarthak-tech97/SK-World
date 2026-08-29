@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -31,6 +32,9 @@
       }
     }
   </script>
+
+  <!-- Supabase Official JavaScript SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
     body {
@@ -68,9 +72,23 @@
     }
   </style>
 </head>
-<body class="text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black dot-grid py-12 px-4 sm:px-8 flex justify-center">
+<body class="text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black dot-grid py-8 px-4 sm:px-8 flex flex-col items-center justify-between">
 
-  <div class="max-w-5xl w-full space-y-12">
+  <div class="max-w-5xl w-full space-y-10">
+
+    <!-- Top Navigation Bar -->
+    <nav class="glass rounded-2xl px-6 py-3.5 flex items-center justify-between shadow-2xl border border-white/10">
+      <a href="index.html" class="flex items-center gap-2 text-sm font-mono font-bold text-cyan-400 hover:text-white transition-colors">
+        <span>←</span>
+        <span>Back to SK WORLD</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <button id="nav-auth-btn" onclick="openModal('login')" class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:opacity-90 transition-all font-mono shadow-lg shadow-cyan-500/20">
+          Log In
+        </button>
+      </div>
+    </nav>
 
     <!-- Header Banner -->
     <header class="text-center space-y-3">
@@ -79,7 +97,7 @@
       </div>
       <h1 class="text-3xl sm:text-5xl font-extrabold font-orbitron text-white">SK WORLD DIGITAL STORE</h1>
       <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
-        Choose your required service or template package, customize your specifications, and submit your order request directly.
+        Select your required service package, customize your specifications, and submit your verified order request directly.
       </p>
     </header>
 
@@ -98,7 +116,6 @@
             Vector print-calibrated OMR sheets for coaching tests, competitive mock series, and evaluations with custom branding and question blocks.
           </p>
 
-          <!-- Pricing Tiers Selector -->
           <div class="space-y-2 mb-6">
             <div class="text-xs font-mono text-slate-400 font-bold uppercase">Select Format Package:</div>
             
@@ -130,7 +147,7 @@
           </div>
         </div>
 
-        <button onclick="selectProduct('Custom OMR Sheet Package', document.querySelector('input[name=omr_tier]:checked').value)" class="w-full py-3 rounded-xl bg-white/5 border border-purple-500/30 text-purple-300 font-bold text-xs font-mono hover:bg-purple-500 hover:text-white transition-all">
+        <button onclick="handleProductSelect('Custom OMR Sheet Package', document.querySelector('input[name=omr_tier]:checked').value)" class="w-full py-3 rounded-xl bg-white/5 border border-purple-500/30 text-purple-300 font-bold text-xs font-mono hover:bg-purple-500 hover:text-white transition-all">
           Select OMR Package ➔
         </button>
       </div>
@@ -147,7 +164,6 @@
             Single-heartbeat 60FPS live wallpaper for PC (Lively Wallpaper) with binary matrix rain, digital clock, custom countdowns, and zero RAM lag.
           </p>
 
-          <!-- Pricing Tiers Selector -->
           <div class="space-y-2 mb-6">
             <div class="text-xs font-mono text-slate-400 font-bold uppercase">Select Wallpaper Tier:</div>
             
@@ -187,7 +203,7 @@
           </div>
         </div>
 
-        <button onclick="selectProduct('Interactive Live Wallpaper HUD', document.querySelector('input[name=wp_tier]:checked').value)" class="w-full py-3 rounded-xl bg-white/5 border border-cyan-500/30 text-cyan-300 font-bold text-xs font-mono hover:bg-cyan-500 hover:text-black transition-all">
+        <button onclick="handleProductSelect('Interactive Live Wallpaper HUD', document.querySelector('input[name=wp_tier]:checked').value)" class="w-full py-3 rounded-xl bg-white/5 border border-cyan-500/30 text-cyan-300 font-bold text-xs font-mono hover:bg-cyan-500 hover:text-black transition-all">
           Select Wallpaper Tier ➔
         </button>
       </div>
@@ -207,12 +223,12 @@
             Curated high-density formula cheat sheets, MERN stack syntax summaries, and revision roadmaps ready for digital reference or print.
           </p>
         </div>
-        <button onclick="selectProduct('Full-Stack & Academic Formula Kit', 'Standard Kit (₹99)')" class="w-full py-3 rounded-xl bg-white/5 border border-amber-500/30 text-amber-300 font-bold text-xs font-mono hover:bg-amber-500 hover:text-black transition-all">
+        <button onclick="handleProductSelect('Full-Stack & Academic Formula Kit', 'Standard Kit (₹99)')" class="w-full py-3 rounded-xl bg-white/5 border border-amber-500/30 text-amber-300 font-bold text-xs font-mono hover:bg-amber-500 hover:text-black transition-all">
           Select Formula Kit (₹99) ➔
         </button>
       </div>
 
-      <!-- Product 4: Productivity & Protocol Dashboard -->
+      <!-- Product 4: Productivity Dashboard -->
       <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
         <div>
           <div class="flex justify-between items-center mb-3">
@@ -227,14 +243,14 @@
             Custom automated Excel trackers with pivot summaries or browser-based temporal routine trackers tailored to your daily schedule.
           </p>
         </div>
-        <button onclick="selectProduct('Custom Protocol & Excel Dashboard', 'Standard Tracker (₹99)')" class="w-full py-3 rounded-xl bg-white/5 border border-emerald-500/30 text-emerald-300 font-bold text-xs font-mono hover:bg-emerald-500 hover:text-black transition-all">
+        <button onclick="handleProductSelect('Custom Protocol & Excel Dashboard', 'Standard Tracker (₹99)')" class="w-full py-3 rounded-xl bg-white/5 border border-emerald-500/30 text-emerald-300 font-bold text-xs font-mono hover:bg-emerald-500 hover:text-black transition-all">
           Select Dashboard (₹99) ➔
         </button>
       </div>
 
     </div>
 
-    <!-- Interactive Order Submission & Summary Form -->
+    <!-- ================= AUTH-GATED ORDER SECTION ================= -->
     <div id="order-section" class="glass-card rounded-3xl p-8 sm:p-12 border border-cyan-500/30 text-left relative overflow-hidden">
       
       <div class="mb-8 pb-6 border-b border-white/10 flex flex-wrap justify-between items-center gap-4">
@@ -243,7 +259,6 @@
           <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Submit Your Custom Order</h3>
         </div>
         
-        <!-- Live Selected Package Badge -->
         <div class="p-3 rounded-xl bg-black/60 border border-cyan-500/30 text-right">
           <div class="text-[10px] font-mono text-slate-400 uppercase">Selected Item:</div>
           <div id="cart-item-name" class="font-bold text-sm text-cyan-300">Custom OMR Sheet Package</div>
@@ -251,53 +266,71 @@
         </div>
       </div>
 
-      <!-- Real FormSubmit Forwarding to Sarthak's Gmail -->
-      <form action="https://formsubmit.co/sarthakyadav8225@gmail.com" method="POST" class="space-y-5">
+      <!-- STATE 1: LOCKED VIEW (WHEN LOGGED OUT) -->
+      <div id="order-locked-view" class="p-8 rounded-2xl bg-black/60 border border-white/10 max-w-md mx-auto text-center space-y-4">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mx-auto">
+          🔒
+        </div>
+        <h4 class="font-bold text-lg text-white">Authentication Required to Order</h4>
+        <p class="text-slate-400 text-xs leading-relaxed">
+          Please log in or create an account to unlock the custom order desk. Your verified email will be automatically linked to the order.
+        </p>
+        <button onclick="openModal('login')" class="w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:opacity-90 transition-opacity shadow-lg shadow-cyan-500/20 font-mono">
+          🔑 Log In / Sign Up to Order
+        </button>
+      </div>
+
+      <!-- STATE 2: UNLOCKED ORDER FORM (WHEN LOGGED IN) -->
+      <div id="order-unlocked-view" class="hidden">
         
-        <input type="hidden" name="_subject" value="New Custom Service Order - SK World Store" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" id="form-selected-product" name="selected_product" value="Custom OMR Sheet Package" />
-
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div>
-            <label class="block text-xs font-mono text-slate-400 mb-1">YOUR NAME *</label>
-            <input type="text" name="customer_name" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white" />
-          </div>
-
-          <div>
-            <label class="block text-xs font-mono text-slate-400 mb-1">YOUR EMAIL ADDRESS *</label>
-            <input type="email" name="customer_email" required placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white" />
-          </div>
+        <!-- Verified User Badge -->
+        <div class="mb-5 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between text-xs font-mono">
+          <span class="text-emerald-400 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="order-user-email">Ordering as: user@example.com</span>
+          </span>
+          <span class="text-slate-400 text-[10px]">Verified Session ✓</span>
         </div>
 
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div>
-            <label class="block text-xs font-mono text-slate-400 mb-1">TELEGRAM OR WHATSAPP (FOR INSTANT DELIVERY) *</label>
-            <input type="text" name="contact_handle" required placeholder="@yourhandle or WhatsApp number" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white" />
+        <form action="https://formsubmit.co/sarthakyadav8225@gmail.com" method="POST" class="space-y-5">
+          
+          <input type="hidden" name="_subject" value="New Custom Service Order - SK World Store" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" id="form-selected-product" name="selected_product" value="Custom OMR Sheet Package" />
+          <input type="hidden" id="hidden-order-email" name="customer_verified_email" value="" />
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">YOUR FULL NAME *</label>
+              <input type="text" name="customer_name" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">TELEGRAM OR WHATSAPP (FOR INSTANT DELIVERY) *</label>
+              <input type="text" name="contact_handle" required placeholder="@yourhandle or WhatsApp number" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white" />
+            </div>
           </div>
 
           <div>
             <label class="block text-xs font-mono text-slate-400 mb-1">PAYMENT PREFERENCE</label>
             <select name="payment_mode" class="w-full px-4 py-3 rounded-xl bg-[#090e1c] border border-white/10 focus:border-cyan-400 outline-none text-sm text-slate-200">
               <option value="UPI (GPay / PhonePe / Paytm)">📱 UPI (GPay / PhonePe / Paytm)</option>
-              <option value="Direct QR Code Transfer">⚡ Direct QR Code Scan</option>
+              <option value="Direct QR Code Scan">⚡ Direct QR Code Scan</option>
               <option value="Bank Transfer">🏦 Bank IMPS / NEFT</option>
             </select>
           </div>
-        </div>
 
-        <div>
-          <label class="block text-xs font-mono text-slate-400 mb-1">CUSTOM REQUIREMENTS & SPECIFICATIONS</label>
-          <textarea name="order_custom_notes" rows="3" placeholder="Specify question count, custom title/branding for OMR, wallpaper resolution, or custom formulas..." class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white resize-none"></textarea>
-        </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1">CUSTOM REQUIREMENTS & SPECIFICATIONS</label>
+            <textarea name="order_custom_notes" rows="3" placeholder="Specify question count, custom title/branding for OMR, wallpaper resolution, or custom formulas..." class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white resize-none"></textarea>
+          </div>
 
-        <div class="flex flex-wrap gap-4 pt-2">
-          <button type="submit" class="flex-1 py-4 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 text-black hover:opacity-95 transition-opacity shadow-lg shadow-cyan-500/20 font-mono">
-            Submit Order Request 🚀
+          <button type="submit" class="w-full py-4 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 text-black hover:opacity-95 transition-opacity shadow-lg shadow-cyan-500/20 font-mono">
+            Submit Order Request Directly to Sarthak 🚀
           </button>
-        </div>
+        </form>
 
-      </form>
+      </div>
 
     </div>
 
@@ -308,21 +341,176 @@
 
   </div>
 
+  <!-- ================= AUTH MODAL (LOGIN / SIGN-UP) ================= -->
+  <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
+    <div class="glass rounded-3xl p-8 max-w-md w-full border border-white/20 shadow-2xl relative">
+      
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold p-1">✕</button>
+
+      <div class="text-center mb-6">
+        <h3 id="modal-title" class="font-orbitron font-extrabold text-2xl text-white">LOGIN OR SIGN UP</h3>
+        <p id="modal-subtitle" class="text-xs text-slate-400 mt-1 font-mono">Unlock Custom Orders & Member Resources</p>
+      </div>
+
+      <div class="flex bg-black/40 p-1 rounded-xl border border-white/10 mb-5 text-xs font-bold font-mono">
+        <button id="tab-login-btn" onclick="switchModalMode('login')" class="flex-1 py-2 rounded-lg bg-cyan-500 text-black transition-all">Sign In</button>
+        <button id="tab-signup-btn" onclick="switchModalMode('signup')" class="flex-1 py-2 rounded-lg text-slate-400 hover:text-white transition-all">Create Account</button>
+      </div>
+
+      <form id="modal-form" onsubmit="handleAuthSubmit(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1">WHAT'S YOUR E-MAIL?</label>
+          <input type="email" id="auth-email" required placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white transition-colors" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1">YOUR PASSWORD?</label>
+          <input type="password" id="auth-pass" placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white transition-colors" />
+        </div>
+
+        <button type="submit" id="auth-submit-btn" class="w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:opacity-95 transition-opacity shadow-lg shadow-cyan-500/20 mt-2 font-mono">
+          Login / Continue ➔
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
+    // 1. Supabase Initialization
+    const SUPABASE_URL = "https://qjphirueumbaqsbtbvjl.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_9f2SNgXBD-T8nTAzjYSwHQ_HjpRDxND";
+    const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    let currentUser = null;
+
+    async function checkAuthSession() {
+      const { data: { session } } = await _supabase.auth.getSession();
+      currentUser = session ? session.user : null;
+      updateAuthUI(currentUser);
+    }
+
+    function updateAuthUI(user) {
+      const navBtn = document.getElementById('nav-auth-btn');
+      const lockedView = document.getElementById('order-locked-view');
+      const unlockedView = document.getElementById('order-unlocked-view');
+      const userEmailBadge = document.getElementById('order-user-email');
+      const hiddenEmail = document.getElementById('hidden-order-email');
+
+      if (user) {
+        const username = user.email.split('@')[0];
+        if (navBtn) {
+          navBtn.textContent = `👤 ${username} (Logout)`;
+          navBtn.onclick = handleSignOut;
+        }
+        if (lockedView) lockedView.classList.add('hidden');
+        if (unlockedView) unlockedView.classList.remove('hidden');
+        if (userEmailBadge) userEmailBadge.textContent = `Ordering as: ${user.email}`;
+        if (hiddenEmail) hiddenEmail.value = user.email;
+      } else {
+        if (navBtn) {
+          navBtn.textContent = "Log In";
+          navBtn.onclick = () => openModal('login');
+        }
+        if (lockedView) lockedView.classList.remove('hidden');
+        if (unlockedView) unlockedView.classList.add('hidden');
+        if (hiddenEmail) hiddenEmail.value = '';
+      }
+    }
+
+    async function handleSignOut() {
+      await _supabase.auth.signOut();
+      alert("Logged out successfully.");
+      checkAuthSession();
+    }
+
+    // 2. Cart & Product Selection Logic
     function updateCart(name, price) {
       document.getElementById('cart-item-name').textContent = name;
       document.getElementById('cart-item-price').textContent = `₹${price}`;
       document.getElementById('form-selected-product').value = `${name} (₹${price})`;
     }
 
-    function selectProduct(productName, tier) {
-      document.getElementById('cart-item-name').textContent = productName;
-      document.getElementById('cart-item-price').textContent = tier;
-      document.getElementById('form-selected-product').value = `${productName} - ${tier}`;
+    function handleProductSelect(productName, tier) {
+      updateCart(productName, tier.match(/₹\d+/)?.[0] || tier);
       
-      const orderSec = document.getElementById('order-section');
-      orderSec.scrollIntoView({ behavior: 'smooth' });
+      if (!currentUser) {
+        openModal('login');
+      } else {
+        const orderSec = document.getElementById('order-section');
+        orderSec.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+
+    // 3. Modal Handling
+    let currentModalMode = 'login';
+
+    function openModal(mode = 'login') {
+      document.getElementById('auth-modal').classList.remove('hidden');
+      switchModalMode(mode);
+    }
+
+    function closeModal() {
+      document.getElementById('auth-modal').classList.add('hidden');
+    }
+
+    function switchModalMode(mode) {
+      currentModalMode = mode;
+      const title = document.getElementById('modal-title');
+      const submitBtn = document.getElementById('auth-submit-btn');
+      const loginTab = document.getElementById('tab-login-btn');
+      const signupTab = document.getElementById('tab-signup-btn');
+
+      if (mode === 'signup') {
+        title.textContent = "CREATE AN ACCOUNT";
+        submitBtn.textContent = "Create Account ➔";
+        submitBtn.className = "w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-purple-400 to-pink-500 text-white hover:opacity-95 transition-opacity shadow-lg shadow-purple-500/20 mt-2 font-mono";
+        signupTab.className = "flex-1 py-2 rounded-lg bg-purple-500 text-white transition-all font-bold";
+        loginTab.className = "flex-1 py-2 rounded-lg text-slate-400 hover:text-white transition-all";
+      } else {
+        title.textContent = "LOGIN TO SK WORLD";
+        submitBtn.textContent = "Login / Continue ➔";
+        submitBtn.className = "w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:opacity-95 transition-opacity shadow-lg shadow-cyan-500/20 mt-2 font-mono";
+        loginTab.className = "flex-1 py-2 rounded-lg bg-cyan-500 text-black transition-all font-bold";
+        signupTab.className = "flex-1 py-2 rounded-lg text-slate-400 hover:text-white transition-all";
+      }
+    }
+
+    async function handleAuthSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('auth-email').value;
+      const pass = document.getElementById('auth-pass').value;
+
+      if (currentModalMode === 'signup') {
+        if (!pass || pass.length < 6) {
+          alert("Password must be at least 6 characters.");
+          return;
+        }
+        const { data, error } = await _supabase.auth.signUp({ email, password: pass });
+        if (error) {
+          alert("Sign Up Error: " + error.message);
+        } else {
+          alert("Account Successfully Created! Check your email inbox to confirm or sign in.");
+          closeModal();
+          checkAuthSession();
+        }
+      } else {
+        const { data, error } = await _supabase.auth.signInWithPassword({ email, password: pass });
+        if (error) {
+          alert("Login Failed: " + error.message);
+        } else {
+          alert("Welcome back! Login Successful.");
+          closeModal();
+          checkAuthSession();
+          const orderSec = document.getElementById('order-section');
+          orderSec.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+
+    window.onload = () => {
+      checkAuthSession();
+    };
   </script>
 
 </body>
