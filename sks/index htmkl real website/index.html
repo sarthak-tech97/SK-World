@@ -1,0 +1,1705 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO Meta Tags -->
+    <title>SK WORLD // Full-Stack Developer & Systems Architect</title>
+    <meta
+      name="title"
+      content="SK WORLD // Full-Stack Developer & Systems Architect"
+    />
+    <meta
+      name="description"
+      content="Engineering high-performance web applications, scalable digital architectures, and intelligent automation systems."
+    />
+    <meta
+      name="keywords"
+      content="SK World, Full Stack Developer, Web Developer, MERN Stack, React, Node.js, JavaScript, Tailwind CSS"
+    />
+    <meta name="author" content="SK WORLD" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / WhatsApp / Telegram Preview -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="SK WORLD // Full-Stack Developer & Systems Architect"
+    />
+    <meta
+      property="og:description"
+      content="Engineering high-performance web applications, scalable digital architectures, and intelligent automation systems."
+    />
+    <meta property="og:image" content="2308527.jpg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Orbitron:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+              orbitron: ["Orbitron", "sans-serif"],
+            },
+            colors: {
+              brandDark: "#02040a",
+              brandPanel: "rgba(9, 14, 28, 0.75)",
+              brandCyan: "var(--accent-color, #00f2fe)",
+              brandPurple: "#8b5cf6",
+              brandEmerald: "#10b981",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Supabase Official JavaScript SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+      :root {
+        --accent: #00f2fe;
+        --accent-glow: rgba(0, 242, 254, 0.4);
+      }
+      body {
+        background-color: #0b0f19; /* Ultra Clean Matte Dark */
+        background-image:
+          radial-gradient(at 0% 0%, var(--accent-glow) 0px, transparent 40%),
+          radial-gradient(
+            at 100% 0%,
+            rgba(139, 92, 246, 0.12) 0px,
+            transparent 40%
+          ),
+          radial-gradient(
+            at 50% 100%,
+            rgba(16, 185, 129, 0.06) 0px,
+            transparent 45%
+          );
+        background-attachment: fixed;
+      }
+      .dot-grid {
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.07) 1px,
+          transparent 1px
+        );
+        background-size: 24px 24px;
+      }
+      .glass {
+        background: rgba(9, 14, 28, 0.72);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .glass-card {
+        background: rgba(11, 18, 36, 0.65);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .glass-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -15px var(--accent-glow);
+      }
+      .neon-text-accent {
+        color: var(--accent);
+        text-shadow: 0 0 25px var(--accent-glow);
+      }
+      .hacker-frame {
+        clip-path: polygon(
+          0 0,
+          calc(100% - 25px) 0,
+          100% 25px,
+          100% 100%,
+          25px 100%,
+          0 calc(100% - 25px)
+        );
+      }
+    </style>
+  </head>
+  <body
+    class="text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black relative dot-grid"
+  >
+    <!-- ================= NAVBAR ================= -->
+    <header
+      class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-8 max-w-6xl mx-auto"
+    >
+      <nav
+        class="glass rounded-2xl px-6 py-3.5 flex items-center justify-between shadow-2xl border border-white/10"
+      >
+        <!-- Custom Vector SK Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div
+            class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 via-teal-400 to-purple-600 p-[1.5px] shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform"
+          >
+            <div
+              class="w-full h-full bg-[#04060e] rounded-[10px] flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-cyan-400"
+                viewBox="0 0 100 100"
+                fill="none"
+              >
+                <path
+                  d="M42 28 C42 22, 24 22, 24 36 C24 48, 44 46, 44 60 C44 74, 24 74, 24 66"
+                  stroke="url(#cyan-grad)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M56 26 L56 74 M58 50 L78 26 M64 44 L80 74"
+                  stroke="url(#purple-grad)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="cyan-grad"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" stop-color="#00f2fe" />
+                    <stop offset="100%" stop-color="#10b981" />
+                  </linearGradient>
+                  <linearGradient
+                    id="purple-grad"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" stop-color="#00f2fe" />
+                    <stop offset="100%" stop-color="#a855f7" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <span
+              class="font-orbitron font-extrabold text-lg tracking-wider text-white group-hover:text-cyan-400 transition-colors"
+              >SK WORLD</span
+            >
+            <span
+              class="block text-[10px] text-cyan-400 font-mono tracking-widest font-semibold uppercase"
+              >Sarthak</span
+            >
+          </div>
+        </a>
+
+        <!-- Desktop Smooth Scroll Links -->
+        <div
+          class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-300"
+        >
+          <a href="#about" class="hover:text-cyan-400 transition-colors"
+            >Identity</a
+          >
+          <a href="#skills" class="hover:text-cyan-400 transition-colors"
+            >Arsenal</a
+          >
+          <a href="#projects" class="hover:text-cyan-400 transition-colors"
+            >Projects</a
+          >
+          <a href="#vault" class="hover:text-cyan-400 transition-colors"
+            >Vault</a
+          >
+          <a href="#services" class="hover:text-cyan-400 transition-colors"
+            >Solutions</a
+          >
+          <a href="#opendesk" class="hover:text-cyan-400 transition-colors"
+            >Open Desk</a
+          >
+          <a
+            href="#query-portal"
+            class="hover:text-cyan-400 transition-colors font-bold text-cyan-400"
+            >Query Portal</a
+          >
+        </div>
+
+        <!-- Action Area: Theme Switcher + Auth -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a
+            href="store.html"
+            class="px-3.5 py-2 rounded-xl text-xs font-bold font-mono bg-gradient-to-r from-amber-400 to-orange-500 text-black hover:opacity-90 transition-all shadow-lg shadow-amber-500/25 flex items-center gap-1.5"
+          >
+            <span>🛒</span>
+            <span>Store (₹99+)</span>
+          </a>
+          <button
+            id="nav-auth-btn"
+            onclick="openModal('login')"
+            class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:opacity-90 transition-all font-mono shadow-lg shadow-cyan-500/20"
+          >
+            Log In
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          class="md:hidden p-2 text-slate-300 hover:text-white"
+          onclick="toggleMobileMenu()"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden glass mt-2 rounded-2xl p-6 flex flex-col gap-4 font-semibold text-center border border-white/10 shadow-2xl"
+      >
+        <a
+          href="#about"
+          onclick="toggleMobileMenu()"
+          class="hover:text-cyan-400"
+          >Identity</a
+        >
+        <a
+          href="#skills"
+          onclick="toggleMobileMenu()"
+          class="hover:text-cyan-400"
+          >Arsenal</a
+        >
+        <a
+          href="#projects"
+          onclick="toggleMobileMenu()"
+          class="hover:text-cyan-400"
+          >Projects</a
+        >
+        <a
+          href="#vault"
+          onclick="toggleMobileMenu()"
+          class="hover:text-cyan-400"
+          >Vault (Free Tools)</a
+        >
+        <a
+          href="#services"
+          onclick="toggleMobileMenu()"
+          class="hover:text-cyan-400"
+          >Solutions</a
+        >
+        <a
+          href="#opendesk"
+          onclick="toggleMobileMenu()"
+          class="hover:text-cyan-400"
+          >Open Desk</a
+        >
+        <a
+          href="#query-portal"
+          onclick="toggleMobileMenu()"
+          class="text-cyan-400 font-bold"
+          >Query Portal</a
+        >
+        <button
+          id="mobile-auth-btn"
+          onclick="
+            openModal('login');
+            toggleMobileMenu();
+          "
+          class="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500 text-black w-full mt-2 font-mono"
+        >
+          Log In
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= HERO SECTION (PHOTO ON RIGHT, TEXT ON LEFT) ================= -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center pt-32 pb-16 px-4 sm:px-8 max-w-6xl mx-auto"
+    >
+      <div class="grid lg:grid-cols-12 gap-12 items-center w-full">
+        <!-- Left Column: The Pitch -->
+        <div class="lg:col-span-7 text-left flex flex-col items-start">
+          <!-- Live Status Activity Chip -->
+          <div
+            class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-semibold mb-6 shadow-lg shadow-cyan-500/10"
+          >
+            <span
+              class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
+            ></span>
+            <span
+              >CURRENT FOCUS: Full-Stack MERN Architecture • Lofi Mode
+              Active</span
+            >
+          </div>
+
+          <!-- Headline -->
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-5"
+          >
+            Engineering High-Performance Web Apps & <br />
+            <span
+              class="bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-500 bg-clip-text text-transparent neon-text-accent"
+            >
+              Scalable Digital Systems.
+            </span>
+          </h1>
+
+          <!-- Typewriter Subtitle -->
+          <div
+            class="text-base sm:text-xl font-mono text-slate-300 mb-5 min-h-[30px] flex items-center gap-2"
+          >
+            <span class="text-cyan-400 font-bold">></span>
+            <span
+              id="typewriter-text"
+              class="border-r-2 border-cyan-400 pr-1"
+            ></span>
+          </div>
+
+          <!-- Bio -->
+          <p
+            class="text-slate-400 text-sm sm:text-base leading-relaxed mb-8 max-w-xl"
+          >
+            Focused on building fast, responsive, and robust web applications.
+            Transforming complex logical requirements into seamless digital
+            experiences with clean code architecture.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a
+              href="#query-portal"
+              class="px-8 py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:opacity-90 hover:shadow-xl hover:shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 font-mono"
+            >
+              Submit Query / Project 🚀
+            </a>
+            <a
+              href="#projects"
+              class="px-8 py-3.5 rounded-xl font-bold text-sm glass text-white hover:bg-white/10 hover:border-white/20 transition-all transform hover:-translate-y-0.5"
+            >
+              Explore Projects ⚡
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Hacker Mask Photo Frame (Facing Leftwards to Text) -->
+        <div class="lg:col-span-5 flex justify-center items-center">
+          <div class="relative group">
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-3xl blur-2xl opacity-40 group-hover:opacity-75 transition duration-500"
+            ></div>
+
+            <div
+              class="relative glass rounded-3xl p-3 border-2 border-cyan-500/40 shadow-2xl"
+            >
+              <div
+                class="hacker-frame overflow-hidden rounded-2xl bg-[#04060e] relative max-w-[340px] sm:max-w-[380px]"
+              >
+                <img
+                  src="2308527.jpg"
+                  alt="SK Architect Avatar"
+                  class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  onerror="
+                    this.src =
+                      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop'
+                  "
+                />
+                <div
+                  class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 text-center"
+                >
+                  <div
+                    class="font-orbitron font-extrabold text-sm text-cyan-400 tracking-wider"
+                  >
+                    SK WORLD // SYSTEM ARCHITECT
+                  </div>
+                  <div class="text-[10px] text-slate-400 font-mono mt-0.5">
+                    MERN • AUTOMATION • HIGH-PERFORMANCE
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="py-20 px-4 sm:px-8 max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <div
+          class="inline-block px-3 py-1 rounded-md text-xs font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-3 uppercase tracking-widest"
+        >
+          [ ✦ IDENTITY ]
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold">
+          Engineering Philosophy
+        </h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div
+          class="glass-card rounded-2xl p-8 space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base"
+        >
+          <p>
+            Dedicated to end-to-end full-stack web engineering. The core
+            approach combines deep technical logic with meticulous visual and
+            architectural execution.
+          </p>
+          <p>
+            From architecting responsive frontends in modern CSS and JavaScript
+            frameworks to structuring optimized backend databases and automated
+            data workflows, the focus is on building software that is scalable,
+            reliable, and user-centric.
+          </p>
+          <p class="text-cyan-300 font-semibold pt-2 border-t border-white/10">
+            "Building software isn't just about writing syntax — it's about
+            engineering resilient systems that solve tangible problems with
+            precision."
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="glass-card rounded-2xl p-5 flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl font-mono"
+            >
+              💻
+            </div>
+            <div>
+              <div class="text-xs text-slate-400 font-mono font-bold">
+                CORE ENGINEERING
+              </div>
+              <div class="font-bold text-white text-sm sm:text-base">
+                JavaScript (ES6+), React, Node.js, Express & REST APIs
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-5 flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl font-mono"
+            >
+              📊
+            </div>
+            <div>
+              <div class="text-xs text-slate-400 font-mono font-bold">
+                DATA & SPREADSHEET AUTOMATION
+              </div>
+              <div class="font-bold text-white text-sm sm:text-base">
+                Advanced Data Modeling, Dynamic Formulas & Pivot Engines
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-5 flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl font-mono"
+            >
+              🎯
+            </div>
+            <div>
+              <div class="text-xs text-slate-400 font-mono font-bold">
+                PROBLEM SOLVING & STANDARDS
+              </div>
+              <div class="font-bold text-white text-sm sm:text-base">
+                Relational Database Schemas & High-DPI Output Engines
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TECHNICAL ARSENAL ================= -->
+    <section id="skills" class="py-20 px-4 sm:px-8 max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <div
+          class="inline-block px-3 py-1 rounded-md text-xs font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-3 uppercase tracking-widest"
+        >
+          [ ✦ TECHNICAL ARSENAL ]
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold">Core Competencies</h3>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="glass-card rounded-2xl p-6 border-t-2 border-t-cyan-400">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-2xl">⚡</span>
+            <h4 class="font-orbitron font-bold text-lg text-white">Frontend</h4>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-cyan-300"
+              >HTML5 Semantic</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-cyan-300"
+              >CSS3 Architecture</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-cyan-300"
+              >JavaScript (ES6+)</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-cyan-300"
+              >Tailwind CSS</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-cyan-300"
+              >Bootstrap Grid</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-cyan-300"
+              >React.js Component UI</span
+            >
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-t-2 border-t-purple-400">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-2xl">🛠️</span>
+            <h4 class="font-orbitron font-bold text-lg text-white">
+              Backend & Data
+            </h4>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-purple-300"
+              >Node.js Runtime</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-purple-300"
+              >Express.js REST APIs</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-purple-300"
+              >MongoDB Database</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-purple-300"
+              >CRUD Architecture</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-purple-300"
+              >Relational SQL Logic</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-purple-300"
+              >Supabase Cloud Auth</span
+            >
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-t-2 border-t-emerald-400">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-2xl">🚀</span>
+            <h4 class="font-orbitron font-bold text-lg text-white">
+              Tools & Pipelines
+            </h4>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-emerald-300"
+              >Git & GitHub</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-emerald-300"
+              >VS Code Advanced</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-emerald-300"
+              >MS Excel Advanced</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-emerald-300"
+              >Pivot & Analytics</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-emerald-300"
+              >High-DPI Print Calibration</span
+            >
+            <span
+              class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-emerald-300"
+              >Fast Touch Typing</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PROJECTS WITH PREVIEW MODALS ================= -->
+    <section id="projects" class="py-20 px-4 sm:px-8 max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <div
+          class="inline-block px-3 py-1 rounded-md text-xs font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-3 uppercase tracking-widest"
+        >
+          [ ✦ CREATIVE LAB ]
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold">
+          Featured Production Engines
+        </h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Project 1 -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <span
+                class="px-3 py-1 rounded-md text-[11px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
+                >FLAGSHIP ENGINE</span
+              >
+              <span class="text-xs font-mono text-slate-400"
+                >Canvas • Event-Driven JS</span
+              >
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">
+              Real-Time Interactive Desktop & Mobile HUD Engines
+            </h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              A high-performance interactive live wallpaper platform featuring
+              dynamic binary matrix streams, real-time temporal countdown
+              engines, and precision focus timers.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-cyan-300"
+                >60FPS Canvas</span
+              >
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-cyan-300"
+                >Zero-Lag 8GB RAM</span
+              >
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-cyan-300"
+                >Live Heartbeat</span
+              >
+            </div>
+          </div>
+          <div
+            class="pt-4 border-t border-white/10 flex justify-between items-center"
+          >
+            <span class="text-xs font-bold text-cyan-400 font-mono"
+              >Status: Production Deployed ✓</span
+            >
+            <button
+              onclick="openProjectModal(1)"
+              class="text-xs font-bold text-slate-300 hover:text-white underline"
+            >
+              Live Spec ↗
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <span
+                class="px-3 py-1 rounded-md text-[11px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20"
+                >PRODUCTION TOOL</span
+              >
+              <span class="text-xs font-mono text-slate-400"
+                >Modular CSS Grid • Print</span
+              >
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">
+              High-Precision Vector OMR & Exam Layout Generator
+            </h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              A scalable exam publishing engine designed for competitive mock
+              tests and coaching assessments. Built with mathematical grid
+              alignment for physical optical evaluation.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-purple-300"
+                >100/160 Questions</span
+              >
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-purple-300"
+                >Vector Calibration</span
+              >
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-purple-300"
+                >High-DPI Output</span
+              >
+            </div>
+          </div>
+          <div
+            class="pt-4 border-t border-white/10 flex justify-between items-center"
+          >
+            <span class="text-xs font-bold text-purple-400 font-mono"
+              >Status: Print-Calibrated ✓</span
+            >
+            <button
+              onclick="openProjectModal(2)"
+              class="text-xs font-bold text-slate-300 hover:text-white underline"
+            >
+              Live Spec ↗
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <span
+                class="px-3 py-1 rounded-md text-[11px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                >SYSTEMS & WORKFLOW</span
+              >
+              <span class="text-xs font-mono text-slate-400"
+                >Vanilla JS • Web Storage</span
+              >
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">
+              Temporal Protocol & Deep Flow Dashboard
+            </h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              A zero-dependency productivity operating system designed around
+              temporal slot-tracking algorithms. Automatically highlights active
+              work protocols based on system clock.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-emerald-300"
+                >Dynamic Slot Tracking</span
+              >
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-emerald-300"
+                >LocalStorage Sync</span
+              >
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-emerald-300"
+                >Focus Sprints</span
+              >
+            </div>
+          </div>
+          <div
+            class="pt-4 border-t border-white/10 flex justify-between items-center"
+          >
+            <span class="text-xs font-bold text-emerald-400 font-mono"
+              >Status: Active Operating System ✓</span
+            >
+            <button
+              onclick="openProjectModal(3)"
+              class="text-xs font-bold text-slate-300 hover:text-white underline"
+            >
+              Live Spec ↗
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <span
+                class="px-3 py-1 rounded-md text-[11px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20"
+                >E-COMMERCE SUITE</span
+              >
+              <span class="text-xs font-mono text-slate-400"
+                >Interactive UI • Store</span
+              >
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">
+              Digital Learning & Formula Hub
+            </h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              A modern digital asset storefront tailored for developers and
+              students. Features instant search indexing and clean visual
+              previews for technical cheat sheets and formula roadmaps.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-amber-300"
+                >Search Filtering</span
+              >
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-amber-300"
+                >Instant Preview</span
+              >
+              <span
+                class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-amber-300"
+                >Developer Sheets</span
+              >
+            </div>
+          </div>
+          <div
+            class="pt-4 border-t border-white/10 flex justify-between items-center"
+          >
+            <span class="text-xs font-bold text-amber-400 font-mono"
+              >Status: In Active Iteration ⚙️</span
+            >
+            <button
+              onclick="openProjectModal(4)"
+              class="text-xs font-bold text-slate-300 hover:text-white underline"
+            >
+              Live Spec ↗
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DEVELOPER ASSET VAULT (FREE TOOLS) ================= -->
+    <section id="vault" class="py-20 px-4 sm:px-8 max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <div
+          class="inline-block px-3 py-1 rounded-md text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3 uppercase tracking-widest"
+        >
+          [ ✦ DEVELOPER ASSET VAULT ]
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold">
+          Curated Tools & Study Templates
+        </h3>
+        <p class="text-slate-400 text-sm max-w-md mx-auto mt-2">
+          Free production-ready assets and study roadmaps created for developers
+          and students.
+        </p>
+        <div class="text-center mt-6">
+          <button
+            onclick="window.location.href = './store.html'"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-amber-500/40 text-amber-300 font-mono font-bold text-xs hover:bg-amber-500 hover:text-black transition-all shadow-lg shadow-amber-500/10 cursor-pointer"
+          >
+            <span>🛒 Open Full Pricing & Custom Order Catalog ➔</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div
+          class="glass-card rounded-2xl p-6 text-left flex flex-col justify-between"
+        >
+          <div>
+            <div class="text-2xl mb-3">📄</div>
+            <h4 class="font-bold text-base text-white mb-1">
+              Printable 160-Q OMR Sheet
+            </h4>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Standardized vector print template formatted for test evaluations
+              and competitive practice.
+            </p>
+          </div>
+          <a
+            href="#query-portal"
+            class="text-xs font-mono font-bold text-cyan-400 hover:underline"
+            >Request Custom Format ➔</a
+          >
+        </div>
+
+        <div
+          class="glass-card rounded-2xl p-6 text-left flex flex-col justify-between"
+        >
+          <div>
+            <div class="text-2xl mb-3">📊</div>
+            <h4 class="font-bold text-base text-white mb-1">
+              Advanced Excel Study Tracker
+            </h4>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Automated spreadsheet with dynamic conditional formulas, pivot
+              summaries, and habit metrics.
+            </p>
+          </div>
+          <a
+            href="#query-portal"
+            class="text-xs font-mono font-bold text-purple-400 hover:underline"
+            >Request Spreadsheet ➔</a
+          >
+        </div>
+
+        <div
+          class="glass-card rounded-2xl p-6 text-left flex flex-col justify-between"
+        >
+          <div>
+            <div class="text-2xl mb-3">⚡</div>
+            <h4 class="font-bold text-base text-white mb-1">
+              MERN Stack Roadmaps
+            </h4>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Step-by-step practical guides covering frontend, REST API
+              architecture, and database schemas.
+            </p>
+          </div>
+          <a
+            href="https://t.me/webdevelopersarthak"
+            target="_blank"
+            class="text-xs font-mono font-bold text-emerald-400 hover:underline"
+            >Access in Community ➔</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section id="services" class="py-20 px-4 sm:px-8 max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <div
+          class="inline-block px-3 py-1 rounded-md text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3 uppercase tracking-widest"
+        >
+          [ ✦ SOLUTIONS ]
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold">
+          What I Build For Clients
+        </h3>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="glass-card rounded-2xl p-6 text-left">
+          <div class="text-3xl mb-4">🌐</div>
+          <h4 class="font-bold text-lg text-white mb-2">
+            Modern Web Development
+          </h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Custom responsive portfolio websites, landing pages, and web
+            applications built with clean code, fast load times, and mobile
+            responsiveness.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 text-left">
+          <div class="text-3xl mb-4">📊</div>
+          <h4 class="font-bold text-lg text-white mb-2">
+            Excel & Dashboard Automation
+          </h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Complex formulas, pivot tables, automated financial/sales trackers,
+            and structured data cleaning workflows for businesses.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 text-left">
+          <div class="text-3xl mb-4">🎨</div>
+          <h4 class="font-bold text-lg text-white mb-2">
+            UI Design & Custom Layouts
+          </h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Interactive widgets, printable documentation templates, OMR sheets,
+            and dark-mode aesthetic user interfaces.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= OPEN DESK & DEVELOPER OFFICE HOURS ================= -->
+    <section id="opendesk" class="py-20 px-4 sm:px-8 max-w-4xl mx-auto">
+      <div
+        class="glass-card rounded-3xl p-8 sm:p-12 border border-cyan-500/30 text-center relative overflow-hidden bg-gradient-to-b from-cyan-500/10 to-transparent shadow-2xl mb-8"
+      >
+        <div class="relative z-10">
+          <div
+            class="inline-block px-3 py-1 rounded-md text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 mb-3 uppercase tracking-widest"
+          >
+            [ ✦ DEVELOPER OFFICE HOURS & LIVE LAB ]
+          </div>
+          <h3 class="text-2xl sm:text-4xl font-extrabold mb-3">
+            Stuck on a Complex Bug or Need Architecture Review?
+          </h3>
+
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-cyan-400 mb-6"
+          >
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+            ACTIVE DESK: MON – SAT | 10:00 AM – 04:00 PM IST
+          </div>
+
+          <p
+            class="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed mb-8"
+          >
+            Whether you are troubleshooting a tricky JavaScript error,
+            optimizing a database query, structuring a responsive layout, or
+            need technical feedback on your project architecture — the live desk
+            is open. Submit your query through the verified portal for direct,
+            hands-on debugging support.
+          </p>
+
+          <div class="flex justify-center">
+            <a
+              href="#query-portal"
+              class="px-8 py-3.5 rounded-xl bg-cyan-500 text-black font-bold text-sm hover:opacity-90 shadow-lg shadow-cyan-500/25 transition-all flex items-center gap-2 font-mono"
+            >
+              <span>🚀 Open Verified Query Portal</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Community Channels Cards -->
+      <div class="grid sm:grid-cols-2 gap-6">
+        <a
+          href="https://www.instagram.com/channel/R-w4HgHAWmnVUM0c/"
+          target="_blank"
+          class="glass-card rounded-2xl p-6 flex items-center gap-4 hover:border-pink-500/40 group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 group-hover:scale-105 transition-transform flex-shrink-0"
+          >
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+              />
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold text-white text-base">
+              Instagram Broadcast Channel
+            </div>
+            <div class="text-xs text-pink-400 font-mono mt-0.5">
+              Join Stream ↗
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://t.me/webdevelopersarthak"
+          target="_blank"
+          class="glass-card rounded-2xl p-6 flex items-center gap-4 hover:border-cyan-500/40 group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform flex-shrink-0 font-mono text-2xl"
+          >
+            ✈️
+          </div>
+          <div>
+            <div class="font-bold text-white text-base">
+              Telegram Channel (@webdevelopersarthak)
+            </div>
+            <div class="text-xs text-cyan-400 font-mono mt-0.5">
+              Join Community ↗
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= AUTH-GATED QUERY PORTAL ================= -->
+    <section id="query-portal" class="py-20 px-4 sm:px-8 max-w-4xl mx-auto">
+      <div
+        class="glass-card rounded-3xl p-8 sm:p-12 border border-white/10 text-center relative overflow-hidden"
+      >
+        <div class="relative z-10">
+          <div
+            class="inline-block px-3 py-1 rounded-md text-xs font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-3 uppercase tracking-widest"
+          >
+            [ ✦ CLIENT & STUDENT QUERY PORTAL ]
+          </div>
+          <h3 class="text-3xl sm:text-5xl font-extrabold mb-3">
+            Submit Project / Query
+          </h3>
+          <p class="text-slate-400 max-w-lg mx-auto text-sm sm:text-base mb-8">
+            Upload your project requirements, technical inquiries, or support
+            requests directly to our verified system.
+          </p>
+
+          <!-- STATE 1: LOCKED VIEW (WHEN LOGGED OUT) -->
+          <div
+            id="query-locked-view"
+            class="p-8 rounded-2xl bg-black/60 border border-white/10 max-w-md mx-auto space-y-4"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mx-auto"
+            >
+              🔒
+            </div>
+            <h4 class="font-bold text-lg text-white">
+              Authentication Required
+            </h4>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              To prevent automated spam and protect user privacy, you must be
+              logged into a verified SK World account to submit a query.
+            </p>
+            <button
+              onclick="openModal('login')"
+              class="w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:opacity-90 transition-opacity shadow-lg shadow-cyan-500/20 font-mono"
+            >
+              🔑 Log In / Sign Up to Unlock Portal
+            </button>
+          </div>
+
+          <!-- STATE 2: UNLOCKED QUERY FORM (WHEN LOGGED IN) -->
+          <div
+            id="query-unlocked-view"
+            class="hidden max-w-xl mx-auto text-left"
+          >
+            <div
+              class="mb-5 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between text-xs font-mono"
+            >
+              <span class="text-emerald-400 flex items-center gap-2">
+                <span
+                  class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
+                ></span>
+                <span id="unlocked-user-email"
+                  >Submitting as: user@example.com</span
+                >
+              </span>
+              <span class="text-slate-400 text-[10px]">Verified Session ✓</span>
+            </div>
+
+            <form
+              action="https://formsubmit.co/sarthakyadav8225@gmail.com"
+              method="POST"
+              class="space-y-4"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Query Submitted via SK World Portal"
+              />
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="hidden"
+                name="authenticated_account_email"
+                id="hidden-auth-email"
+                value=""
+              />
+
+              <!-- Field 1: Name -->
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1"
+                  >YOUR FULL NAME / CLIENT NAME *</label
+                >
+                <input
+                  type="text"
+                  name="client_name"
+                  required
+                  placeholder="e.g. Rahul Sharma"
+                  class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white transition-colors"
+                />
+              </div>
+
+              <!-- Field 2: Category Dropdown (With Custom Option) -->
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1"
+                  >QUERY CATEGORY *</label
+                >
+                <select
+                  name="query_category"
+                  required
+                  class="w-full px-4 py-3 rounded-xl bg-[#090e1c] border border-white/10 focus:border-cyan-400 outline-none text-sm text-slate-200 transition-colors"
+                >
+                  <option value="Custom Web Development">
+                    🌐 Custom Web Development (Landing Page / Web App)
+                  </option>
+                  <option value="Printable OMR / Exam Sheet Layout">
+                    📄 Custom Printable OMR Sheet / Exam Layout
+                  </option>
+                  <option value="MS Excel & Spreadsheet Automation">
+                    📊 MS Excel & Spreadsheet Automation
+                  </option>
+                  <option value="Live Code Debugging & Support">
+                    ⚡ Live Code Debugging & Technical Help (10 AM - 4 PM)
+                  </option>
+                  <option value="Custom Requirement / Other Inquiries">
+                    ✨ Custom Requirement / Other Inquiries
+                  </option>
+                </select>
+              </div>
+
+              <!-- Field 3: Title / Subject -->
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1"
+                  >QUERY TITLE / SUBJECT *</label
+                >
+                <input
+                  type="text"
+                  name="query_title"
+                  required
+                  placeholder="Brief 1-line summary of your requirement..."
+                  class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white transition-colors"
+                />
+              </div>
+
+              <!-- Field 4: Description -->
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1"
+                  >DETAILED REQUIREMENTS / PROBLEM DESCRIPTION *</label
+                >
+                <textarea
+                  name="query_description"
+                  required
+                  rows="4"
+                  placeholder="Describe the project scope, key features, deadlines, or specific problem..."
+                  class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Field 5: Preferred Reply Method -->
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-mono text-slate-400 mb-1"
+                    >REPLY CHANNEL PREFERENCE</label
+                  >
+                  <select
+                    name="reply_channel"
+                    class="w-full px-4 py-3 rounded-xl bg-[#090e1c] border border-white/10 focus:border-cyan-400 outline-none text-sm text-slate-200"
+                  >
+                    <option value="Email (Primary)">
+                      ✉️ Reply via Email (Default)
+                    </option>
+                    <option value="Telegram Direct">
+                      ✈️ Reply via Telegram
+                    </option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-slate-400 mb-1"
+                    >TELEGRAM USERNAME (OPTIONAL)</label
+                  >
+                  <input
+                    type="text"
+                    name="telegram_username"
+                    placeholder="@yourhandle"
+                    class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white"
+                  />
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 to-purple-500 text-black hover:opacity-95 transition-opacity shadow-lg shadow-cyan-500/20 mt-2 font-mono"
+              >
+                Submit Query Directly to Sarthak 🚀
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FLOATING QUICK SUPPORT BUBBLE ================= -->
+    <div class="fixed bottom-6 right-6 z-30">
+      <a
+        href="#opendesk"
+        class="px-4 py-2.5 rounded-full glass border border-cyan-500/40 text-cyan-300 font-bold text-xs shadow-2xl flex items-center gap-2 hover:bg-cyan-500 hover:text-black transition-all group"
+      >
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+        <span>Live Support (10 AM–4 PM)</span>
+      </a>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer
+      class="py-12 px-4 border-t border-white/10 text-center space-y-4 max-w-5xl mx-auto w-full"
+    >
+      <div
+        class="flex flex-wrap justify-center gap-6 text-xs font-semibold text-slate-400"
+      >
+        <a href="#about" class="hover:text-cyan-400">Identity</a>
+        <a href="#skills" class="hover:text-cyan-400">Arsenal</a>
+        <a href="#projects" class="hover:text-cyan-400">Projects</a>
+        <a href="#vault" class="hover:text-cyan-400">Vault</a>
+        <a href="#services" class="hover:text-cyan-400">Solutions</a>
+        <a href="#opendesk" class="hover:text-cyan-400">Open Desk</a>
+        <a
+          href="#query-portal"
+          class="hover:text-cyan-400 text-cyan-400 font-bold"
+          >Query Portal</a
+        >
+      </div>
+
+      <div
+        class="glass inline-block px-6 py-3 rounded-xl border border-white/10 text-xs font-mono text-slate-300"
+      >
+        <span class="text-cyan-400 font-bold">SK WORLD // ARCHITECT OS</span> •
+        Engineered with Logic & Clean Code • AI Collaboration with Gemini
+      </div>
+
+      <div class="text-[11px] text-slate-500 font-mono pt-2">
+        © 2026 SK WORLD. All rights reserved. Built for high-impact performance.
+      </div>
+    </footer>
+
+    <!-- ================= PROJECT LIVE PREVIEW MODAL ================= -->
+    <div
+      id="project-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden"
+    >
+      <div
+        class="glass rounded-3xl p-8 max-w-lg w-full border border-white/20 shadow-2xl relative text-left"
+      >
+        <button
+          onclick="closeProjectModal()"
+          class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold p-1"
+        >
+          ✕
+        </button>
+        <div id="project-modal-content" class="space-y-4">
+          <!-- Dynamically Populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= AUTH MODAL (LOGIN / SIGN-UP) ================= -->
+    <div
+      id="auth-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden"
+    >
+      <div
+        class="glass rounded-3xl p-8 max-w-md w-full border border-white/20 shadow-2xl relative"
+      >
+        <button
+          onclick="closeModal()"
+          class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold p-1"
+        >
+          ✕
+        </button>
+
+        <div class="text-center mb-6">
+          <h3
+            id="modal-title"
+            class="font-orbitron font-extrabold text-2xl text-white"
+          >
+            LOGIN OR SIGN UP
+          </h3>
+          <p id="modal-subtitle" class="text-xs text-slate-400 mt-1 font-mono">
+            Unlock Verified Query Portal & Resources
+          </p>
+        </div>
+
+        <div
+          class="flex bg-black/40 p-1 rounded-xl border border-white/10 mb-5 text-xs font-bold font-mono"
+        >
+          <button
+            id="tab-login-btn"
+            onclick="switchModalMode('login')"
+            class="flex-1 py-2 rounded-lg bg-cyan-500 text-black transition-all"
+          >
+            Sign In
+          </button>
+          <button
+            id="tab-signup-btn"
+            onclick="switchModalMode('signup')"
+            class="flex-1 py-2 rounded-lg text-slate-400 hover:text-white transition-all"
+          >
+            Create Account
+          </button>
+        </div>
+
+        <form
+          id="modal-form"
+          onsubmit="handleAuthSubmit(event)"
+          class="space-y-4 text-left"
+        >
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1"
+              >WHAT'S YOUR E-MAIL?</label
+            >
+            <input
+              type="email"
+              id="auth-email"
+              required
+              placeholder="name@example.com"
+              class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white transition-colors"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1"
+              >YOUR PASSWORD?</label
+            >
+            <input
+              type="password"
+              id="auth-pass"
+              placeholder="••••••••"
+              class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-cyan-400 outline-none text-sm text-white transition-colors"
+            />
+          </div>
+
+          <button
+            type="submit"
+            id="auth-submit-btn"
+            class="w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:opacity-95 transition-opacity shadow-lg shadow-cyan-500/20 mt-2 font-mono"
+          >
+            Login / Continue ➔
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+      // 1. Supabase Initialization
+      const SUPABASE_URL = "https://qjphirueumbaqsbtbvjl.supabase.co";
+      const SUPABASE_KEY = "sb_publishable_9f2SNgXBD-T8nTAzjYSwHQ_HjpRDxND";
+      const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+      async function checkAuthSession() {
+        const {
+          data: { session },
+        } = await _supabase.auth.getSession();
+        updateAuthUI(session ? session.user : null);
+      }
+
+      function updateAuthUI(user) {
+        const navBtn = document.getElementById("nav-auth-btn");
+        const mobileBtn = document.getElementById("mobile-auth-btn");
+        const lockedView = document.getElementById("query-locked-view");
+        const unlockedView = document.getElementById("query-unlocked-view");
+        const emailBadge = document.getElementById("unlocked-user-email");
+        const hiddenEmail = document.getElementById("hidden-auth-email");
+
+        if (user) {
+          const username = user.email.split("@")[0];
+          const label = `👤 ${username} (Logout)`;
+          if (navBtn) {
+            navBtn.textContent = label;
+            navBtn.onclick = handleSignOut;
+          }
+          if (mobileBtn) {
+            mobileBtn.textContent = label;
+            mobileBtn.onclick = handleSignOut;
+          }
+
+          if (lockedView) lockedView.classList.add("hidden");
+          if (unlockedView) unlockedView.classList.remove("hidden");
+          if (emailBadge)
+            emailBadge.textContent = `Submitting as: ${user.email}`;
+          if (hiddenEmail) hiddenEmail.value = user.email;
+        } else {
+          if (navBtn) {
+            navBtn.textContent = "Log In";
+            navBtn.onclick = () => openModal("login");
+          }
+          if (mobileBtn) {
+            mobileBtn.textContent = "Log In";
+            mobileBtn.onclick = () => openModal("login");
+          }
+
+          if (lockedView) lockedView.classList.remove("hidden");
+          if (unlockedView) unlockedView.classList.add("hidden");
+          if (hiddenEmail) hiddenEmail.value = "";
+        }
+      }
+
+      async function handleSignOut() {
+        await _supabase.auth.signOut();
+        alert("Logged out successfully.");
+        checkAuthSession();
+      }
+
+      // 2. Typewriter Effect
+      const roles = [
+        "Full-Stack Web Developer",
+        "Systems & Automation Architect",
+        "Modern UI/UX Engineer",
+      ];
+      let roleIdx = 0;
+      let charIdx = 0;
+      let isDeleting = false;
+      const typeEl = document.getElementById("typewriter-text");
+
+      function typeEffect() {
+        const currentRole = roles[roleIdx];
+        if (isDeleting) {
+          typeEl.textContent = currentRole.substring(0, charIdx - 1);
+          charIdx--;
+        } else {
+          typeEl.textContent = currentRole.substring(0, charIdx + 1);
+          charIdx++;
+        }
+
+        let speed = isDeleting ? 35 : 75;
+        if (!isDeleting && charIdx === currentRole.length) {
+          speed = 2000;
+          isDeleting = true;
+        } else if (isDeleting && charIdx === 0) {
+          isDeleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+          speed = 400;
+        }
+        setTimeout(typeEffect, speed);
+      }
+      typeEffect();
+
+      function toggleMobileMenu() {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+      }
+
+      // 3. Theme Switcher (1-Click Color Accent)
+      function setTheme(color) {
+        const themes = {
+          cyan: { accent: "#00f2fe", glow: "rgba(0, 242, 254, 0.4)" },
+          purple: { accent: "#a855f7", glow: "rgba(168, 85, 247, 0.4)" },
+          emerald: { accent: "#10b981", glow: "rgba(16, 185, 129, 0.4)" },
+          crimson: { accent: "#ff0055", glow: "rgba(255, 0, 85, 0.4)" },
+        };
+        const t = themes[color] || themes["cyan"];
+        document.documentElement.style.setProperty("--accent", t.accent);
+        document.documentElement.style.setProperty("--accent-glow", t.glow);
+      }
+
+      // 4. Project Live Preview Modal Engine
+      const projectSpecs = {
+        1: {
+          title: "Real-Time Interactive Desktop & Mobile HUD Engines",
+          tag: "Canvas • Event-Driven Architecture",
+          desc: "Built with 60FPS optimized HTML5 canvas rendering, single-heartbeat 1-second JavaScript event loops, and zero-lag hardware-accelerated CSS transforms. Features live AM/PM clocks, 18th milestone countdown, and focus timers designed specifically for resource-constrained systems.",
+          tech: [
+            "HTML5 Canvas",
+            "JavaScript ES6+",
+            "Lively Wallpaper API",
+            "CSS GPU Acceleration",
+          ],
+        },
+        2: {
+          title: "High-Precision Vector OMR & Exam Layout Generator",
+          tag: "Modular CSS Grid • High-DPI Print",
+          desc: "Engineered for coaching institutes and competitive test series. Implements mathematical vector bubble alignment and high-DPI calibrated print engines for physical optical evaluation without layout misalignment.",
+          tech: [
+            "CSS Grid Engine",
+            "Print Calibration",
+            "High-DPI Export",
+            "Modular 100/160-Q",
+          ],
+        },
+        3: {
+          title: "Temporal Protocol & Deep Flow Dashboard",
+          tag: "Vanilla JS • Web Storage",
+          desc: "Zero-dependency productivity OS designed around active slot-tracking algorithms. Automatically detects current real-time schedule slots, manages daily hydration levels, and maintains persistent state with localStorage.",
+          tech: [
+            "Vanilla JavaScript",
+            "Temporal State Engine",
+            "LocalStorage API",
+            "Tailwind UI",
+          ],
+        },
+        4: {
+          title: "Digital Learning & Formula Hub",
+          tag: "Interactive UI • E-Commerce Suite",
+          desc: "Storefront platform for students and developers to browse, filter, and preview high-density formula cheat sheets, study roadmaps, and UI layout templates.",
+          tech: [
+            "Search Indexing",
+            "Dynamic Filtering",
+            "Interactive Previews",
+            "Asset Storage",
+          ],
+        },
+      };
+
+      function openProjectModal(id) {
+        const spec = projectSpecs[id];
+        if (!spec) return;
+        const content = document.getElementById("project-modal-content");
+        content.innerHTML = `
+        <div class="inline-block px-3 py-1 rounded-md text-[11px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-1 uppercase">${spec.tag}</div>
+        <h3 class="text-xl font-bold text-white">${spec.title}</h3>
+        <p class="text-slate-300 text-sm leading-relaxed">${spec.desc}</p>
+        <div class="pt-3 border-t border-white/10">
+          <div class="text-xs font-mono text-slate-400 mb-2 font-bold uppercase">Tech Stack & Modules:</div>
+          <div class="flex flex-wrap gap-2">
+            ${spec.tech.map((t) => `<span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-mono text-cyan-300">${t}</span>`).join("")}
+          </div>
+        </div>
+      `;
+        document.getElementById("project-modal").classList.remove("hidden");
+      }
+
+      function closeProjectModal() {
+        document.getElementById("project-modal").classList.add("hidden");
+      }
+
+      // 5. Auth Modal Handling
+      let currentModalMode = "login";
+
+      function openModal(mode = "login") {
+        document.getElementById("auth-modal").classList.remove("hidden");
+        switchModalMode(mode);
+      }
+
+      function closeModal() {
+        document.getElementById("auth-modal").classList.add("hidden");
+      }
+
+      function switchModalMode(mode) {
+        currentModalMode = mode;
+        const title = document.getElementById("modal-title");
+        const submitBtn = document.getElementById("auth-submit-btn");
+        const loginTab = document.getElementById("tab-login-btn");
+        const signupTab = document.getElementById("tab-signup-btn");
+
+        if (mode === "signup") {
+          title.textContent = "CREATE AN ACCOUNT";
+          submitBtn.textContent = "Create Account ➔";
+          submitBtn.className =
+            "w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-purple-400 to-pink-500 text-white hover:opacity-95 transition-opacity shadow-lg shadow-purple-500/20 mt-2 font-mono";
+          signupTab.className =
+            "flex-1 py-2 rounded-lg bg-purple-500 text-white transition-all font-bold";
+          loginTab.className =
+            "flex-1 py-2 rounded-lg text-slate-400 hover:text-white transition-all";
+        } else {
+          title.textContent = "LOGIN TO SK WORLD";
+          submitBtn.textContent = "Login / Continue ➔";
+          submitBtn.className =
+            "w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:opacity-95 transition-opacity shadow-lg shadow-cyan-500/20 mt-2 font-mono";
+          loginTab.className =
+            "flex-1 py-2 rounded-lg bg-cyan-500 text-black transition-all font-bold";
+          signupTab.className =
+            "flex-1 py-2 rounded-lg text-slate-400 hover:text-white transition-all";
+        }
+      }
+
+      async function handleAuthSubmit(e) {
+        e.preventDefault();
+        const email = document.getElementById("auth-email").value;
+        const pass = document.getElementById("auth-pass").value;
+
+        if (currentModalMode === "signup") {
+          if (!pass || pass.length < 6) {
+            alert("Password must be at least 6 characters.");
+            return;
+          }
+          const { data, error } = await _supabase.auth.signUp({
+            email,
+            password: pass,
+          });
+          if (error) {
+            alert("Sign Up Error: " + error.message);
+          } else {
+            alert(
+              "Account Successfully Created! Check your email inbox to confirm or sign in.",
+            );
+            closeModal();
+            checkAuthSession();
+          }
+        } else {
+          const { data, error } = await _supabase.auth.signInWithPassword({
+            email,
+            password: pass,
+          });
+          if (error) {
+            alert("Login Failed: " + error.message);
+          } else {
+            alert("Welcome back! Login Successful.");
+            closeModal();
+            checkAuthSession();
+          }
+        }
+      }
+
+      window.onload = () => {
+        checkAuthSession();
+      };
+    </script>
+  </body>
+</html>
